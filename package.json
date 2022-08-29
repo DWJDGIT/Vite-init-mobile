@@ -1,0 +1,98 @@
+{
+  "name": "vite-init-mobile",
+  "private": true,
+  "version": "0.0.0",
+  "scripts": {
+    "dev": "cross-env VUE_APP_MODE=development vite --mode development",
+    "build:test": "cross-env VUE_APP_MODE=test vue-tsc --noEmit && cross-env VUE_APP_MODE=test vite build",
+    "build:pros": "cross-env VUE_APP_MODE=production vue-tsc --noEmit && cross-env VUE_APP_MODE=production vite build",
+    "start:test": "cli-service start test",
+    "start:prod": "cli-service start production",
+    "test": "jest",
+    "preview": "vite preview",
+    "prepare": "husky install",
+    "pm2:test": "pm2 start --only vite-init-mobile-test",
+    "pm2:prod": "pm2 start --only vite-init-mobile-prod",
+    "pm2:restart": "pm2 restart vite-init-mobile",
+    "pm2:stop": "pm2 stop vite-init-mobile",
+    "pm2:del": "pm2 delete vite-init-mobile",
+    "lint": "eslint --ext .js,.ts,.jsx,.tsx,.vue . --fix"
+  },
+  "keywords": [
+    "移动端开发框架"
+  ],
+  "author": "YDW",
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "dependencies": {
+    "axios": "^0.27.2",
+    "consola": "^2.15.3",
+    "normalize.css": "^8.0.1",
+    "nprogress": "^0.2.0",
+    "pinia": "^2.0.17",
+    "qs": "^6.11.0",
+    "rollup-plugin-compress-dist": "^1.1.0",
+    "tslib": "^2.4.0",
+    "vant": "^3.5.3",
+    "vue": "^3.2.37",
+    "vue-router": "^4.1.3",
+    "vue3-lazy": "^1.0.0-alpha.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@commitlint/cli": "^17.0.3",
+    "@commitlint/config-conventional": "^17.0.3",
+    "@types/jest": "^26.0.24",
+    "@types/node": "^18.6.3",
+    "@types/nprogress": "^0.2.0",
+    "@types/qs": "^6.9.7",
+    "@vitejs/plugin-vue": "^3.0.0",
+    "@vue/test-utils": "^2.0.1",
+    "ant-design-vue": "^3.2.11",
+    "babel-jest": "^26.6.3",
+    "commitizen": "^4.2.5",
+    "cross-env": "^7.0.3",
+    "cz-conventional-changelog": "^3.3.0",
+    "cz-customizable": "^6.9.1",
+    "eslint-plugin-vue": "^9.3.0",
+    "husky": "^8.0.1",
+    "jest": "^26.6.3",
+    "jest-serializer-vue": "^2.0.2",
+    "jest-transform-stub": "^2.0.0",
+    "less": "^4.1.3",
+    "lint-staged": "^13.0.3",
+    "rollup-plugin-visualizer": "^5.7.1",
+    "ts-jest": "^26.5.6",
+    "typescript": "^4.7.4",
+    "unplugin-auto-import": "^0.10.3",
+    "unplugin-vue-components": "^0.22.0",
+    "vite": "^3.0.0",
+    "vite-plugin-compression": "^0.5.1",
+    "vite-plugin-eslint": "^1.8.1",
+    "vite-plugin-html": "^3.2.0",
+    "vite-plugin-imagemin": "^0.6.1",
+    "vite-plugin-mkcert": "^1.9.0",
+    "vite-plugin-stimulus-hmr": "^3.0.0",
+    "vite-plugin-style-import": "^2.0.0",
+    "vue-jest": "^5.0.0-alpha.10",
+    "vue-tsc": "^0.38.4"
+  },
+  "lint-staged": {
+    "*.{vue,js,ts,tsx}": "eslint --fix"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-customizable"
+    }
+  },
+  "browserslist": [
+    "last 2 version",
+    "> 1%",
+    "maintained node versions",
+    "not dead",
+    "not ie <=10",
+    "safari >=7"
+  ]
+}

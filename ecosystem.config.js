@@ -1,0 +1,47 @@
+module.exports = {
+  apps: [
+    {
+      name: 'vite-init-mobile-test',
+      namespace: 'vite-init-mobile',
+      cwd: './',
+      script: 'node_modules/@yhdfe/cli-service/dist/bin/cli-service.js',
+      args: 'start test',
+      watch: false,
+      exec_mode: 'cluster',
+      // 应用启动实例个数，仅在cluster模式有效 
+      instances: 'max',
+      max_memory_restart: '2G',
+      // 应用程序的错误日志文件(错误日志文件)
+      error_file: './logs/app-err.log',
+      // 应用程序日志文件(正常日志文件)
+      out_file: './logs/app-out.log',
+      merge_logs: true,
+      log_date_format: 'YYYY-MM-DD HH:mm:ss',
+      min_uptime: 100,
+      max_restarts: 20,
+      autorestart: true,
+      cron_restart: '',
+      restart_delay: 30,
+    },
+    {
+      name: 'vite-init-mobile-prod',
+      namespace: 'vite-init-mobile',
+      cwd: './',
+      script: 'node_modules/@yhdfe/cli-service/dist/bin/cli-service.js',
+      args: 'start production',
+      watch: false,
+      exec_mode: 'cluster',
+      instances: 'max',
+      max_memory_restart: '4G',
+      error_file: './logs/app-err.log',
+      out_file: './logs/app-out.log',
+      merge_logs: true,
+      log_date_format: 'YYYY-MM-DD HH:mm:ss',
+      min_uptime: 100,
+      max_restarts: 20,
+      autorestart: true,
+      cron_restart: '',
+      restart_delay: 30,
+    },
+  ],
+}

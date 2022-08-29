@@ -1,2 +1,1 @@
-# Vite-init-mobile
-A template with vite for mobile project
+# Vue 3 + TypeScript + Vite
