@@ -3,7 +3,9 @@
     "composite": true,
     "module": "ESNext",
     "moduleResolution": "Node",
-    "allowSyntheticDefaultImports": true
+    "allowSyntheticDefaultImports": true,
+    "outDir": "./"
   },
-  "include": ["vite.config.ts", "build/**/*.ts", "build/**/*.d.ts"]
+  "include": ["vite.config.ts", "build/**/*.ts", "build/**/*.d.ts", "proxy.config"],
+  "exclude": ["node_modules", "dist"]
 }

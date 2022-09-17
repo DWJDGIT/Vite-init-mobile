@@ -1,3 +1,11 @@
+/*
+ * @Description  :
+ * @Version      :
+ * @Author       : ydw
+ * @Date         : 2022-08-05 14:04:12
+ * @LastEditors  : ydw
+ * @LastEditTime : 2022-08-30 09:13:42
+ */
 import { type } from 'os'
 import { RouterSource } from './common'
 
@@ -65,7 +73,6 @@ export interface NetConfig {
   isNeedToken: boolean
   isNeedShowError: boolean
 }
-
 
 /**
  * @description: 图标配置

@@ -1,3 +1,11 @@
+/*
+ * @Description  :
+ * @Version      :
+ * @Author       : ydw
+ * @Date         : 2022-08-05 08:05:58
+ * @LastEditors  : ydw
+ * @LastEditTime : 2022-08-30 15:13:34
+ */
 import 'axios'
 declare module 'axios' {
   /**
@@ -23,6 +31,6 @@ declare module 'axios' {
     loading?: boolean
     retryCount?: number
     isNeedToken?: boolean
-    isNeedShowError?:boolean
+    isNeedShowError?: boolean
   }
 }

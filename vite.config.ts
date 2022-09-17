@@ -1,3 +1,11 @@
+/*
+ * @Description  :
+ * @Version      :
+ * @Author       : ydw
+ * @Date         : 2022-08-04 17:51:19
+ * @LastEditors  : ydw
+ * @LastEditTime : 2022-09-15 15:01:22
+ */
 import { VITE_DROP_CONSOLE } from './build/constant'
 import { UserConfig, ConfigEnv } from 'vite'
 import { createVitePlugins } from './build/vite/plugin'
@@ -12,20 +20,20 @@ function pathResolve(dir: string) {
 // 环境变量
 const VUE_APP_MODE = process.env.VUE_APP_MODE
 
-const apiList = proxyConfig.proxy.development 
+const apiList = proxyConfig.proxy.development
 
 const proxyList: { [x: string]: any } = {}
 
-for(const key in apiList) {
-  proxyList[`/${key}`]  = {
+for (const key in apiList) {
+  proxyList[`/${key}`] = {
     target: apiList[key],
     changeOrigin: true,
     xfwd: true,
-    rewrite: (path: string) => path.replace(`/${key}`, '')
+    rewrite: (path: string) => path.replace(`/${key}`, ''),
   }
 }
 
-export default ({command, mode}: ConfigEnv): UserConfig => {
+export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build'
   return {
     base: '/',
@@ -35,8 +43,8 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
         '#/': pathResolve('types') + '/',
         '@': pathResolve('src') + '/',
         '@components': pathResolve('src') + '/components/',
-        '@assets': pathResolve('src') + '/assets/'
-      }
+        '@assets': pathResolve('src') + '/assets/',
+      },
     },
     css: {
       preprocessorOptions: {
@@ -59,8 +67,11 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
       host: true,
       port: 9000,
       proxy: proxyList,
-      force: true,
+      // force: true,
       hmr: true,
+    },
+    optimizeDeps: {
+      force: true,
     },
     build: {
       minify: 'terser',
@@ -78,6 +89,6 @@ export default ({command, mode}: ConfigEnv): UserConfig => {
       },
       reportCompressedSize: false,
       chunkSizeWarningLimit: 20000,
-    }
+    },
   }
 }

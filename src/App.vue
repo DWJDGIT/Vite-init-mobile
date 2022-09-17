@@ -1,33 +1,23 @@
-<script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from '@/components/HelloWorld.vue'
-import Permission from '@/views/system/permission.vue'
-</script>
-
 <template>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <router-view v-slot="{ Component, route }">
+      <transition name="fade-transform" mode="out-in" appear>
+        <keep-alive v-if="route.meta.keepAlive">
+          <component :is="Component" :key="route.path" />
+        </keep-alive>
+        <component :is="Component" v-else />
+      </transition>
+    </router-view>
   </div>
-  <HelloWorld msg="Vite + Vue + Typescript" />
-  <permission></permission>
 </template>
 
 <style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
+.router-fade-enter-active,
+.router-fade-leave-active {
+  transition: opacity 0.3s;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+.router-fade-enter,
+.router-fade-leave-active {
+  opacity: 0;
 }
 </style>

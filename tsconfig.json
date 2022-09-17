@@ -1,30 +1,41 @@
 {
   "compilerOptions": {
-    "baseUrl": "./",
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
-    "noImplicitAny": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
+    "baseUrl": "./", // 用于解析非相对模块名称的基础目录
+    "target": "ESNext", // 指定 ECMAScript 目标版本
+    "useDefineForClassFields": true, // [[Define]] 语义
+    "module": "ESNext", // 指定使用模块: 'commonjs', 'amd', 'system', 'umd' or 'es2015'
+    "moduleResolution": "Node", // 选择模块解析策略： 'node' (Node.js) or 'classic' (TypeScript pre-1.6)
+    "noImplicitAny": true, // 在表达式和声明上有隐含的 any类型时报错
+    "noUnusedLocals": true, // 有未使用的变量时，抛出错误
+    "noUnusedParameters": true, // 有未使用的参数时，抛出错误
+    "noFallthroughCasesInSwitch": true, // 报告switch语句的fallthrough错误。（即，不允许switch的case语句贯穿）
     "paths": {
+      // 模块名到基于 baseUrl 的路径映射的列表
       "@/*": ["src/*"],
       "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"]
+      "@assets/*": ["src/assets/*"],
+      "#/*": ["types/*"]
     },
-    "strict": true,
-    "jsx": "preserve",
-    "sourceMap": true,
+    "strict": true, // 启用所有严格类型检查选项
+    "jsx": "preserve", // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
+    // "sourceMap": true,
     "types": ["jest", "node"],
-    "resolveJsonModule": true,
-    "importHelpers": true,
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "lib": ["ESNext", "DOM"],
-    "skipLibCheck": true
+    "resolveJsonModule": true, // 解析json模块
+    "importHelpers": true, // 从 tslib 导入辅助工具函数
+    // "isolatedModules": true,
+    "esModuleInterop": true, // 支持合成模块的默认导入
+    "lib": ["ESNext", "DOM"], // 指定要包含在编译中的库文件
+    "skipLibCheck": true // 忽略声明文件的类型检查
   },
-  "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"],
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "tests/**/*.ts",
+    "tests/**/*.tsx",
+    "types/*.ts",
+    "types/*.d.ts"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -39,6 +39,7 @@
     "onServerPrefetch": true,
     "onUnmounted": true,
     "onUpdated": true,
+    "progress": true,
     "provide": true,
     "reactive": true,
     "readonly": true,
