@@ -1,5 +1,5 @@
 <template>
-  <div class="page-content group-architecture comm-filter-list">permission</div>
+  <div class="page-content">permission</div>
 </template>
 
 <script lang="ts">

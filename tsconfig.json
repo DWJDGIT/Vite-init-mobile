@@ -11,15 +11,15 @@
     "noFallthroughCasesInSwitch": true, // 报告switch语句的fallthrough错误。（即，不允许switch的case语句贯穿）
     "paths": {
       // 模块名到基于 baseUrl 的路径映射的列表
-      "@/*": ["src/*"],
-      "@components/*": ["src/components/*"],
-      "@assets/*": ["src/assets/*"],
-      "#/*": ["types/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@assets/*": ["./src/assets/*"],
+      "#/*": ["./types/*"]
     },
     "strict": true, // 启用所有严格类型检查选项
     "jsx": "preserve", // 指定 jsx 代码的生成: 'preserve', 'react-native', or 'react'
     // "sourceMap": true,
-    "types": ["jest", "node"],
+    "types": ["jest", "node", "vite/client"],
     "resolveJsonModule": true, // 解析json模块
     "importHelpers": true, // 从 tslib 导入辅助工具函数
     // "isolatedModules": true,
@@ -34,8 +34,8 @@
     "src/**/*.vue",
     "tests/**/*.ts",
     "tests/**/*.tsx",
-    "types/*.ts",
-    "types/*.d.ts"
+    "types/**/*.ts",
+    "types/**/*.d.ts"
   ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

@@ -1,5 +1,5 @@
 import Components from 'unplugin-vue-components/vite'
-import { VantResolver } from 'unplugin-vue-components/resolvers'
+import { VantResolver, AntDesignVueResolver } from 'unplugin-vue-components/resolvers'
 
 export const configComponents = () => {
   return Components({
@@ -8,7 +8,7 @@ export const configComponents = () => {
     // valid file extensions for components.
     extensions: ['vue'],
     deep: false,
-    resolvers: [VantResolver({importStyle: 'less'})],
+    resolvers: [VantResolver({ importStyle: 'less' }), AntDesignVueResolver()],
     dts: 'types/components.d.ts',
     directoryAsNamespace: false,
     globalNamespaces: [],

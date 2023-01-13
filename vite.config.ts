@@ -4,7 +4,7 @@
  * @Author       : ydw
  * @Date         : 2022-08-04 17:51:19
  * @LastEditors  : ydw
- * @LastEditTime : 2022-09-15 15:01:22
+ * @LastEditTime : 2023-01-12 16:16:23
  */
 import { VITE_DROP_CONSOLE } from './build/constant'
 import { UserConfig, ConfigEnv } from 'vite'
@@ -32,7 +32,7 @@ for (const key in apiList) {
     rewrite: (path: string) => path.replace(`/${key}`, ''),
   }
 }
-
+/** @type {import('vite').UserConfig} */
 export default ({ command, mode }: ConfigEnv): UserConfig => {
   const isBuild = command === 'build'
   return {
@@ -49,10 +49,10 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
     css: {
       preprocessorOptions: {
         less: {
-          modifyVars: {
-            hack: `true; @import (reference) "${pathResolve('src/assets/css/base.less')}";`,
-          },
-          additionalData: `import "${pathResolve('src/assets/css/index.less')}";`,
+          // modifyVars: {
+          //   hack: `true; @import (reference) "${pathResolve('src/assets/css/base.less')}";`,
+          // },
+          // additionalData: `import "${pathResolve('src/assets/css/index.less')}";`,
           javascriptEnabled: true,
         },
       },
@@ -68,7 +68,7 @@ export default ({ command, mode }: ConfigEnv): UserConfig => {
       port: 9000,
       proxy: proxyList,
       // force: true,
-      hmr: true,
+      hmr: false,
     },
     optimizeDeps: {
       force: true,

@@ -1,14 +1,12 @@
 <template>
-  <div>
-    <router-view v-slot="{ Component, route }">
-      <transition name="fade-transform" mode="out-in" appear>
-        <keep-alive v-if="route.meta.keepAlive">
-          <component :is="Component" :key="route.path" />
-        </keep-alive>
-        <component :is="Component" v-else />
-      </transition>
-    </router-view>
-  </div>
+  <router-view v-slot="{ Component, route }">
+    <transition name="fade-transform" mode="out-in" appear>
+      <keep-alive v-if="route.meta.keepAlive">
+        <component :is="Component" :key="route.path" />
+      </keep-alive>
+      <component :is="Component" v-else />
+    </transition>
+  </router-view>
 </template>
 
 <style scoped>
